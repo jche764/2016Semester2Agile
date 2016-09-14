@@ -11,12 +11,12 @@
 <h:head>
 </h:head>
 <h:body>
-	
+
 	<h:form>
-	<p:messages autoUpdate="true" />
+		<p:messages autoUpdate="true" />
 		<p:panelGrid columns="1" layout="grid" id="questionPanel">
-		<h1>Question #{answerQuestionBean.currentQuestionIndex +1} out of
-		#{answerQuestionBean.totalNumberOfQuestions}</h1>
+			<h1>Question #{answerQuestionBean.currentQuestionIndex +1} out
+				of #{answerQuestionBean.totalNumberOfQuestions}</h1>
 			<p:row>
 				<h:outputText
 					value="#{answerQuestionBean.getCurrentQuestion().questionBody}" />
@@ -24,14 +24,17 @@
 			<p:row>
 				<p:selectOneRadio id="options" required="true"
 					value="#{answerQuestionBean.response}">
-					<f:selectItems value="#{answerQuestionBean.getCurrentQuestion().options}" var="option"
-						itemLabel="#{option.optionBody}" itemValue="#{options.optionBody}" />
+					<f:selectItems
+						value="#{answerQuestionBean.getCurrentQuestion().options}"
+						var="option" itemLabel="#{option.optionBody}"
+						itemValue="#{options.optionBody}" />
 				</p:selectOneRadio>
 			</p:row>
 
 		</p:panelGrid>
-		<p:commandButton value="next" action="#{answerQuestionBean.doNext}"
-			update="questionPanel"></p:commandButton>
+		<p:commandButton value="next" style="margin-top:10px;"
+			action="#{answerQuestionBean.doNext}" update="questionPanel">
+		</p:commandButton>
 
 	</h:form>
 </h:body>

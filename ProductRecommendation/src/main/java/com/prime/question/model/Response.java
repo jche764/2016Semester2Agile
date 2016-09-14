@@ -14,7 +14,7 @@ public class Response {
 	@Column(name = "RESPONSE_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int responseId;
-	
+
 	@Column(name = "CUSTOMER_ID")
 	private int customerId;
 
@@ -52,7 +52,7 @@ public class Response {
 		return answer;
 	}
 
-	public void setAnswer(String answer2) {
+	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
 
