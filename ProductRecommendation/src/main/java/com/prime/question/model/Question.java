@@ -12,22 +12,25 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.prime.weight.model.Weight;
+
 
 @Entity
-@Table
+@Table (name="Question")
 public class Question {
 
 	@Id
 	@Column(name = "QUESTION_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int questionId;
+	private Integer questionId;
 
 	@Column(name = "QUESTION_BODY")
 	private String questionBody;
 
-	@OneToMany(mappedBy = "questionId", targetEntity = Option.class, orphanRemoval=true,
+	@OneToMany(mappedBy = "question", targetEntity = Option.class, orphanRemoval=true,
 			fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Option> options;
+
 
 	
 	public List<Option> getOptions() {
@@ -38,11 +41,11 @@ public class Question {
 		this.options = options;
 	}
 
-	public int getQuestionId() {
+	public Integer getQuestionId() {
 		return questionId;
 	}
 
-	public void setQuestionId(int questionId) {
+	public void setQuestionId(Integer questionId) {
 		this.questionId = questionId;
 	}
 
